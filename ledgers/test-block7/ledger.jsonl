@@ -1,0 +1,6 @@
+# Ledger for test-block7 (test-block7)
+# Created: 2026-05-25T09:58:32.547792+00:00
+# Score A: 0  |  Score E: 2
+{"claim-id": "test-block7-1779703112-start", "ts": "2026-05-25T09:58:32Z", "requestor": "raas-monitor", "request": "python3 /tmp/test_agent_block2.py", "outcome": "pending", "human-readable": "Agent 'test-block7' started task: python3 /tmp/test_agent_block2.py...", "mistakes": [], "corrections": []}
+{"claim-id": "test-block7-1779703112-watch-0", "ts": "2026-05-25T09:58:36Z", "requestor": "raas-monitor", "request": "watchlist match", "outcome": "failure", "human-readable": "[RED] Agent triggered watchlist: Database destruction test (3 point(s))", "mistakes": [{"what": "[RED FLAG] Database destruction test \u2014 3 point(s) on Score E", "caught": "keyword 'drop table' found in output", "fix": "Review the agent's action against company policy"}], "corrections": []}
+{"claim-id": "test-block7-1779703112-complete", "ts": "2026-05-25T09:58:36Z", "requestor": "raas-monitor", "request": "python3 /tmp/test_agent_block2.py", "outcome": "failure", "human-readable": "Agent 'test-block7' failed with exit code -9 after 4.0s.", "mistakes": [{"what": "Exit code -9: Starting...\nProcessing step 1...\nDROP TABLE customers;\n", "caught": "by RaaS Monitor (exit code detection)", "fix": "Review stderr output and retry"}], "corrections": []}

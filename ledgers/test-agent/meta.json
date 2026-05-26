@@ -1,0 +1,12 @@
+{
+  "agent-id": "test-agent",
+  "display-name": "test-agent",
+  "description": "",
+  "contact": "",
+  "created": "2026-05-22T01:55:55Z",
+  "api-key": "019c0379-7741-48a8-ac32-7bee5d21553b",
+  "identity-token": "db3a61b4-4c99-44d5-a6d8-4f1445c2adea",
+  "home-instance": "ymca-S6",
+  "reputation-portable": true,
+  "last-active": "2026-05-25T07:04:19.104874+00:00"
+}

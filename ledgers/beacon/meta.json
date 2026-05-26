@@ -1,0 +1,11 @@
+{
+  "agent-id": "beacon",
+  "display-name": "Beacon",
+  "description": "Innovation scout. Monitors AI landscape for new developments.",
+  "contact": "",
+  "created": "2026-05-22T01:04:28Z",
+  "api-key": "4e0da875-2e95-4777-a5e7-73d89e18e823",
+  "identity-token": "fcb49fcc-c273-44f5-b30b-4921f32dc3bc",
+  "home-instance": "ymca-S6",
+  "reputation-portable": true
+}

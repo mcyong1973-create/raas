@@ -1,0 +1,10 @@
+{
+  "agent-id": "raas-server",
+  "display-name": "bash (1061352)",
+  "api-key": "f61faed0-990a-46ef-a4e8-bba2c015fba6",
+  "created": "2026-05-25T01:24:20.195911+00:00",
+  "last-active": "2026-05-25T01:24:20.198604+00:00",
+  "identity-token": "4fad9fbe-f9bc-4427-b910-0ad27fc26b0b",
+  "home-instance": "ymca-S6",
+  "reputation-portable": true
+}

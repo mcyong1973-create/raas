@@ -1,0 +1,11 @@
+{
+  "agent-id": "forge",
+  "display-name": "Forge",
+  "description": "Infrastructure monitor. Health checks on both Aion machines.",
+  "contact": "",
+  "created": "2026-05-22T01:04:28Z",
+  "api-key": "d4b7ef4a-1a99-4272-a967-5856522b2026",
+  "identity-token": "158209e9-30cd-478e-978f-75d45865fd81",
+  "home-instance": "ymca-S6",
+  "reputation-portable": true
+}

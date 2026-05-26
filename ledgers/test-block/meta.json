@@ -1,0 +1,10 @@
+{
+  "agent-id": "test-block",
+  "display-name": "test-block",
+  "api-key": "4adf9193-fdd3-40db-a47c-caf36ad13053",
+  "created": "2026-05-25T09:56:06.492723+00:00",
+  "last-active": "2026-05-25T09:56:09.520648+00:00",
+  "identity-token": "29ea28ab-b04c-4a6f-9de9-94970cc72ad8",
+  "home-instance": "ymca-S6",
+  "reputation-portable": true
+}

@@ -1,0 +1,5 @@
+# Ledger for test-block4 (test-block4)
+# Created: 2026-05-25T09:57:30.048787+00:00
+# Score A: 1  |  Score E: 0
+{"claim-id": "test-block4-1779703050-start", "ts": "2026-05-25T09:57:30Z", "requestor": "raas-monitor", "request": "python3 /tmp/test_agent_block2.py", "outcome": "pending", "human-readable": "Agent 'test-block4' started task: python3 /tmp/test_agent_block2.py...", "mistakes": [], "corrections": []}
+{"claim-id": "test-block4-1779703050-complete", "ts": "2026-05-25T09:57:36Z", "requestor": "raas-monitor", "request": "python3 /tmp/test_agent_block2.py", "outcome": "success", "human-readable": "Agent 'test-block4' completed task successfully in 6.0s.", "mistakes": [], "corrections": []}

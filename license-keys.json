@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "updated": "2026-05-25",
+  "note": "License key management. Add new keys here when someone pays.",
+  "pricing": {
+    "basic": {
+      "agents": 2,
+      "price": "$19.99 one-time",
+      "description": "Up to 2 agents, basic monitoring, 3 default watchlist rules"
+    },
+    "pro": {
+      "agents": 10,
+      "price": "$69.99 one-time",
+      "description": "Up to 10 agents, full features, industry presets"
+    },
+    "enterprise": {
+      "agents": -1,
+      "price": "$499.00 one-time",
+      "description": "Unlimited agents, custom watchlists, priority support, white-label"
+    }
+  },
+  "keys": {
+    "DEMO-1234-5678": {
+      "client": "Demo Account",
+      "issued": "2026-05-25",
+      "expires": "2026-06-25",
+      "agents": 50,
+      "tier": "unlimited"
+    }
+  }
+}
