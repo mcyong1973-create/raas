@@ -1,0 +1,7 @@
+# RaaS — .gitignore
+__pycache__/
+*.pyc
+ledgers/test-*/
+ledgers/raas-server/
+~/.raas/
+*.log
