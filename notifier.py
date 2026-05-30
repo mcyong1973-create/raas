@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 
 RaaS_API = "http://localhost:8080/api/v1"
 TRACKER_FILE = os.path.expanduser("~/.raas/score-tracker.json")
-SUPPORT_EMAIL = "mcyong1973@gmail.com"
+SUPPORT_EMAIL = "support@aion-nation.com"
 
 # WhatsApp target (from env or config)
 WHATSAPP_TARGET = os.environ.get("RaaS_WHATSAPP", "whatsapp:16044889229")

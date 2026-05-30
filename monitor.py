@@ -41,7 +41,7 @@ def init_config():
         config = {
             "raas-api": RaaS_API,
             "company": "My Company",
-            "support-email": "mcyong1973@gmail.com",
+            "support-email": "support@aion-nation.com",
             "notification-email": "",
             "notification-whatsapp": "",
             "agents": [],
@@ -989,7 +989,7 @@ def cmd_help():
 def cmd_support():
     """Show support contact information."""
     config = init_config()
-    email = config.get("support-email", "mcyong1973@gmail.com")
+    email = config.get("support-email", "support@aion-nation.com")
     print()
     print(f"  RaaS Support")
     print(f"  {'='*40}")

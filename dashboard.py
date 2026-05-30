@@ -116,7 +116,7 @@ def print_dashboard():
                 lic = json.loads(lic_resp.read())
                 if not lic.get("valid"):
                     print(f"  ⚠ License: {lic.get('message', 'Expired')} — {lic.get('reason', 'unknown')}")
-                    print(f"  Contact: mcyong1973@gmail.com")
+                    print(f"  Contact: support@aion-nation.com")
             except:
                 pass
             # Check for updates
@@ -130,7 +130,7 @@ def print_dashboard():
                     print(f"  ↻ Update available: v{local_ver} → v{remote_ver} (run: raas-monitor update)")
             except:
                 pass
-            print(f"  Support: mcyong1973@gmail.com")
+            print(f"  Support: support@aion-nation.com")
             print()
 
             # Columns: Agent, Score E, Errors, Yellow, Red

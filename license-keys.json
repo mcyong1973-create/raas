@@ -1,22 +1,27 @@
 {
-  "version": 2,
+  "version": 3,
   "updated": "2026-05-25",
-  "note": "License key management. Add new keys here when someone pays.",
+  "note": "License key management. Add new keys here when someone pays. One-time purchase includes 6 months of updates.",
+  "contact": "support@aion-nation.com",
+  "website": "https://aion-nation.com",
   "pricing": {
     "basic": {
       "agents": 2,
       "price": "$19.99 one-time",
-      "description": "Up to 2 agents, basic monitoring, 3 default watchlist rules"
+      "description": "Up to 2 agents, basic monitoring, 3 default watchlist rules",
+      "updates": "6 months of updates included"
     },
     "pro": {
       "agents": 10,
       "price": "$69.99 one-time",
-      "description": "Up to 10 agents, full features, industry presets"
+      "description": "Up to 10 agents, full features, industry presets",
+      "updates": "6 months of updates included"
     },
     "enterprise": {
       "agents": -1,
       "price": "$499.00 one-time",
-      "description": "Unlimited agents, custom watchlists, priority support, white-label"
+      "description": "Unlimited agents, custom watchlists, priority support, white-label",
+      "updates": "6 months of updates included"
     }
   },
   "keys": {

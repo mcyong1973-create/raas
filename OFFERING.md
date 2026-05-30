@@ -23,6 +23,9 @@ A lightweight daemon that runs alongside your agents. Installed in one command.
 - Pro: $69.99 one-time — up to 10 agents, full features, industry presets
 - Enterprise: $499.00 one-time — unlimited agents, custom watchlists, priority support, white-label
 
+_One-time purchase includes 6 months of updates and new features. Major versions
+(v2, v3+) sold separately at upgrade pricing._
+
 **Install:**
 ```bash
 curl -sL https://raas.aion.io/install.sh | bash

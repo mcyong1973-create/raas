@@ -109,7 +109,7 @@ def check_license(license_key=None):
             if license_key and license_key.startswith("DEMO-"):
                 result = {"valid": True, "license-key": license_key, "client": "Demo", "expires": "2026-06-25", "message": "Demo license active"}
             else:
-                result = {"valid": False, "reason": "invalid-key", "message": f"License key '{license_key}' not found. Contact mcyong1973@gmail.com"}
+                result = {"valid": False, "reason": "invalid-key", "message": f"License key '{license_key}' not found. Contact support@aion-nation.com"}
         
         # Cache the result
         os.makedirs(os.path.dirname(LICENSE_CACHE_PATH), exist_ok=True)

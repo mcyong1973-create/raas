@@ -164,9 +164,14 @@ The hosted license includes:
 
 | Tier | Agents | Price (one-time) | Buy |
 |------|--------|------------------|-----|
-| Basic | Up to 2 | $19.99 | [Buy](https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00) |
-| Pro | Up to 10 | $69.99 | [Buy](https://buy.stripe.com/8x228r2Lf08hgp861Z6EU01) |
-| Enterprise | Unlimited | $499.00 | [Contact us](mailto:mcyong1973@gmail.com) |
+| Basic | Up to 2 | $19.99 one-time | [Buy](https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00) |
+| Pro | Up to 10 | $69.99 one-time | [Buy](https://buy.stripe.com/8x228r2Lf08hgp861Z6EU01) |
+| Enterprise | Unlimited | $499.00 one-time | [Contact us](mailto:support@aion-nation.com) |
+
+_One-time purchase includes 6 months of updates and new features. Major versions
+(v2, v3) sold separately at upgrade pricing._
+
+_Pricing in USD. All tiers include MIT-licensed source code.
 
 ```bash
 raas-monitor license                    # Check license status

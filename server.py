@@ -21,12 +21,12 @@ def _license_banner():
     valid = result.get("valid", False)
     reason = result.get("reason", "")
     msg = result.get("message", "")
-    email = "mcyong1973@gmail.com"
+    email = "support@aion-nation.com"
 
     if valid:
         return '<div class="license-ok">✓ License active</div>'
     elif reason == "no-license":
-        return f'<div class="license-none">⚠ No license key. <a href="mailto:mcyong1973@gmail.com" style="color:#d9a022">Contact mcyong1973@gmail.com</a> or <a href="https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00" style="color:#d9a022">subscribe for $10/month</a>. 7-day grace period before tracking stops.</div>'
+        return f'<div class="license-none">⚠ No license key. <a href="mailto:support@aion-nation.com" style="color:#d9a022">Contact support@aion-nation.com</a> or <a href="https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00" style="color:#d9a022">subscribe for $10/month</a>. 7-day grace period before tracking stops.</div>'
     else:
         return f'<div class="license-expired">✗ {msg} <a href="mailto:{email}" style="color:#f85149">Email {email}</a></div>'
 
@@ -468,9 +468,9 @@ def submit_claim(agent_id: str, data: dict):
         return JSONResponse({
             "error": "License expired",
             "message": lic_msg,
-            "help": "Contact mcyong1973@gmail.com or subscribe at https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00",
+            "help": "Contact support@aion-nation.com or subscribe at https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00",
             "support": {
-                "email": "mcyong1973@gmail.com",
+                "email": "support@aion-nation.com",
                 "subscribe": "https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00",
                 "docs": "http://localhost:8080/docs",
                 "status": "http://localhost:8080/api/v1/support"
@@ -516,7 +516,7 @@ def _send_notification(notification):
     new_se = notification.get("score-e", {}).get("new", 0)
     
     msg_lines = [
-        f"🛑 Score E Alert — {agent_id}",
+        f"Score E Alert — {agent_id}",
         f"Score E increased: {old_se} → {new_se} (+{increase})",
         f"Time: {notification.get('timestamp', 'now')[:19]}",
     ]
@@ -526,38 +526,13 @@ def _send_notification(notification):
         msg_lines.append(f"  • {e.get('what', 'Unknown')}")
     
     msg_lines.append(f"Dashboard: http://localhost:8080/agent/{agent_id}")
-    msg_lines.append(f"Contact: mcyong1973@gmail.com")
     
     message = "\n".join(msg_lines)
     print(f"\n  {'='*50}")
-    print(f"  📢 NOTIFICATION: Score E increased for {agent_id}")
+    print(f"  NOTIFICATION: Score E increased for {agent_id}")
     print(f"  {'='*50}")
     print(f"  {message}")
     print(f"  {'='*50}\n")
-    
-    # Try to send via Hermes WhatsApp bridge
-    try:
-        import subprocess
-        whatsapp_cmd = f'hermes send-message --target "whatsapp:16044889229" --message "{message[:2000]}"'
-        subprocess.run(whatsapp_cmd, shell=True, timeout=10, capture_output=True)
-        print(f"  ✓ WhatsApp notification sent")
-    except:
-        pass
-    
-    # Try to send via email
-    try:
-        import smtplib
-        from email.mime.text import MIMEText
-        msg = MIMEText(message)
-        msg["Subject"] = f"🛑 RaaS Alert: {agent_id} — Score E increased +{increase}"
-        msg["To"] = "mcyong1973@gmail.com"
-        msg["From"] = "raas@aion.io"
-        # Email sending commented out — needs SMTP config
-        # s = smtplib.SMTP("localhost")
-        # s.send_message(msg)
-        # s.quit()
-    except:
-        pass
 
 @app.get("/api/v1/score/{agent_id}/achievements")
 def get_achievements(agent_id: str, request: Request):
@@ -620,14 +595,4 @@ def get_errors(agent_id: str, request: Request):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     print(f"RaaS v0.2 starting on port {port}")
-    # Check for updates on startup
-    try:
-        import urllib.request
-        ver_resp = urllib.request.urlopen("https://raw.githubusercontent.com/mcyong1973-create/raas/main/version.json", timeout=5)
-        remote = json.loads(ver_resp.read())
-        rv = remote.get("version", "")
-        if rv and rv != "0.2.0":
-            print(f"  ↻ Update available: v0.2.0 → v{rv} (run: raas-monitor update)")
-    except:
-        pass
     uvicorn.run(app, host="0.0.0.0", port=port)

@@ -1,4 +1,0 @@
-# Ledger for bash (1061352) (raas-server)
-# Created: 2026-05-25T01:24:20.195911+00:00
-# Score A: 1  |  Score E: 0
-{"claim-id": "attached-raas-server-1779672260", "ts": "2026-05-25T01:24:20Z", "requestor": "raas-monitor", "request": "monitoring PID 1061352 (bash)", "outcome": "success", "human-readable": "RaaS Monitor attached to running process bash (PID 1061352).", "mistakes": [], "corrections": []}
