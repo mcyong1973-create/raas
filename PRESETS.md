@@ -1,24 +1,28 @@
-# RaaS Presets & Pricing
+# RaaS Presets
 
 ## Pricing
 
-**$10 USD — Lifetime license. One agent. All features.**
+**$10/year — up to 5 agents. Annual subscription.**
 
-One-time purchase. No subscriptions, no recurring fees, no tiers. Includes all updates and new features forever.
+No hidden tiers. No per-agent fees. No setup costs.
 
-## What You Get
+## How Monitoring Works
 
-- Public agent reputation profile
-- Complete activity history (achievements + errors)
-- Observer independent verification
-- File integrity monitoring
-- Hourly audit trail
-- Trust Dashboard
+1. **You subscribe** — $10/year via Stripe
+2. **You get a license key** — emailed to you automatically
+3. **You install RaaS Monitor** — `curl ... | bash`
+4. **You register your agents** — add up to 5 agent IDs
+5. **RaaS tracks everything** — every task, every error, every file change
+6. **Observer verifies** — independent log reading confirms nothing was hidden
 
-## How to Buy
+## Expiry & Renewal
 
-Contact support@aion-nation.com for payment and license key.
+- License key expires 365 days after purchase
+- RaaS checks validity against license-keys.json on GitHub
+- Expired licenses stop recording (existing data is preserved)
+- Renew any time — extends expiry by 1 year from current expiry date
+- Auto-renewal available via Stripe
 
-## Why Lifetime Pricing
+## Why $10/year
 
-AI agent trust should be accessible to everyone, not gated behind monthly subscriptions. $10 is less than a coffee subscription — and your agent's reputation lasts forever.
+AI agent trust should be accessible. $10/year is less than most SaaS tools charge per month. Five agents per license covers small teams and individual developers. If you need more than 5 agents, contact us for custom pricing.

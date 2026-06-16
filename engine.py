@@ -94,16 +94,47 @@ def check_license(license_key=None):
         if license_key in keys:
             key_info = keys[license_key]
             expires = key_info.get("expires", "")
-            agents_allowed = key_info.get("agents", 2)
-            result = {
-                "valid": True,
-                "license-key": license_key,
-                "client": key_info.get("client", "Unknown"),
-                "tier": key_info.get("tier", "personal"),
-                "expires": expires,
-                "agents-allowed": agents_allowed,
-                "message": f"License valid ({key_info.get('tier', 'personal')}). Expires: {expires}"
-            }
+            agents_allowed = key_info.get("max_agents", key_info.get("agents", 5))
+            tier = key_info.get("tier", "annual")
+            
+            # Check expiry
+            now = datetime.now(timezone.utc)
+            expired = False
+            if expires:
+                try:
+                    exp_date = datetime.strptime(expires, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+                    expired = now > exp_date
+                except:
+                    pass
+            
+            if expired:
+                result = {
+                    "valid": False,
+                    "reason": "expired",
+                    "license-key": license_key,
+                    "expires": expires,
+                    "message": f"License expired {expires}. Renew at support@aion-nation.com",
+                    "agents-allowed": 0,
+                }
+            else:
+                days_left = None
+                if expires:
+                    try:
+                        exp_date = datetime.strptime(expires, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+                        days_left = (exp_date - now).days
+                    except:
+                        pass
+                
+                result = {
+                    "valid": True,
+                    "license-key": license_key,
+                    "client": key_info.get("client", "Unknown"),
+                    "tier": tier,
+                    "expires": expires,
+                    "days_left": days_left,
+                    "agents-allowed": agents_allowed,
+                    "message": f"License valid ({tier}). Expires: {expires}. Agents: {agents_allowed}. Days left: {days_left or 'N/A'}"
+                }
         else:
             # Check for demo key
             if license_key and license_key.startswith("DEMO-"):

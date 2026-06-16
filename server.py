@@ -28,7 +28,7 @@ def _license_banner():
     if valid:
         return '<div class="license-ok">✓ License active</div>'
     elif reason == "no-license":
-        return f'<div class="license-none">\u26a0 No license key. <a href="mailto:support@aion-nation.com" style="color:#d9a022">Contact support@aion-nation.com</a> or <a href="https://buy.stripe.com/whatever" style="color:#d9a022">buy for $10 lifetime</a>. One-time purchase. Lifetime access.</div>'
+        return f'<div class="license-none">\u26a0 No license key. <a href="mailto:support@aion-nation.com" style="color:#d9a022">Contact support@aion-nation.com</a> or <a href="https://buy.stripe.com/whatever" style="color:#d9a022">buy for $10/year — 5 agents. Annual subscription.</a></div>'
     else:
         return f'<div class="license-expired">✗ {msg} <a href="mailto:{email}" style="color:#f85149">Email {email}</a></div>'
 
