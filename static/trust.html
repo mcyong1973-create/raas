@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AION TRUST — Live Agent Reputation & Activity Tracking</title>
+<meta name="description" content="Live, verifiable AI agent reputation with independent Observer tracking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0a0e1a; --surface: #111827; --surface-2: #1a1f2e; --border: #1f2937; --text: #e2e8f0; --text-muted: #94a3b8; --text-dim: #64748b; --accent: #00f5a0; --error: #ef4444; --amber: #f59e0b; --cyan: #22d3ee; --violet: #a78bfa; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+.hero { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.hero h1 { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+.hero p { color: var(--text-muted); font-size: 18px; max-width: 700px; margin: 0 auto 24px; }
+.hero .pledge { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 32px; max-width: 750px; margin: 0 auto; font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+.hero .pledge strong { color: var(--accent); }
+.section-title { font-size: 20px; font-weight: 600; margin: 40px 0 20px; color: var(--text); }
+.section-desc { color: var(--text-dim); font-size: 14px; margin-bottom: 24px; }
+.scores { display: flex; gap: 24px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+.score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; flex: 1; min-width: 160px; max-width: 220px; }
+.score-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 6px; }
+.score-card .value { font-size: 48px; font-weight: 800; font-family: 'JetBrains Mono', monospace; line-height: 1; }
+.score-card.achievements .value { color: var(--accent); }
+.score-card.errors .value { color: var(--error); }
+.score-card.observed .value { color: var(--cyan); }
+.score-card.files .value { color: var(--violet); }
+.score-card .sub { font-size: 12px; color: var(--text-dim); margin-top: 8px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 32px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; padding: 12px 10px; border-bottom: 2px solid var(--border); color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+td { padding: 10px; border-bottom: 1px solid var(--border); }
+.observer-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+.observer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 16px 0; }
+.observer-block { background: var(--surface-2); padding: 16px; border-radius: 8px; }
+.observer-block .title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.observer-block .body { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.tip { background: rgba(34,211,238,0.08); border-left: 3px solid var(--cyan); padding: 12px 16px; border-radius: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+.tip code { color: var(--cyan); }
+.footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; color: var(--text-dim); font-size: 13px; line-height: 2; }
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>AION TRUST</h1>
+  <p>Live, verifiable AI agent reputation with independent Observer activity tracking.</p>
+  <div class="pledge">
+    <strong>Every task, every mistake, every correction — recorded.</strong><br>
+    The Observer independently reads system logs and compares what agents <strong>actually did</strong>
+    against what they <strong>self-reported</strong> in RaaS.<br>
+    Agents cannot tamper with system logs. The Observer itself is logged and verifiable.<br>
+    <em style="color:var(--text-dim)">No other AI company does this.</em>
+  </div>
+</div>
+
+<div class="scores">
+  <div class="score-card achievements">
+    <div class="label">Syn Score A</div>
+    <div class="value">28</div>
+    <div class="sub">Achievements (self-reported)</div>
+  </div>
+  <div class="score-card errors">
+    <div class="label">Syn Score E</div>
+    <div class="value">16</div>
+    <div class="sub">Errors (self-reported)</div>
+  </div>
+  <div class="score-card observed">
+    <div class="label">Observer Today</div>
+    <div class="value">168</div>
+    <div class="sub">Tool calls across all agents</div>
+  </div>
+  <div class="score-card files">
+    <div class="label">Files Tracked</div>
+    <div class="value">65</div>
+    <div class="sub">SHA-256 checksums monitored</div>
+  </div>
+</div>
+
+<h2 class="section-title">All Agents — Reported vs Observed</h2>
+<p class="section-desc">Side-by-side comparison of self-reported RaaS scores versus independent Observer tracking from system logs.</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Agent</th><th>ID</th>
+      <th style="text-align:center">RaaS A</th><th style="text-align:center">RaaS E</th>
+      <th style="text-align:center">Actions</th><th style="text-align:center">Errors</th>
+      <th style="text-align:center">Writes</th><th style="text-align:center">Hours</th>
+      <th style="text-align:center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="color:var(--accent);font-weight:600">Syn</span></td>
+      <td style="font-size:13px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">syn</td>
+      <td style="text-align:center"><span style="color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace">28</span></td>
+      <td style="text-align:center"><span style="color:var(--error);font-weight:700;font-family:'JetBrains Mono',monospace">16</span></td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">165</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">39</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">4</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">10</td>
+      <td style="text-align:center;font-size:13px">⚠ Under-report</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--amber);font-weight:600">Sage</span></td>
+      <td style="font-size:13px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">sage</td>
+      <td style="text-align:center"><span style="color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace">22</span></td>
+      <td style="text-align:center"><span style="color:var(--error);font-weight:700;font-family:'JetBrains Mono',monospace">4</span></td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-size:13px">✅ Idle</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--cyan);font-weight:600">Forge</span></td>
+      <td style="font-size:13px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">forge</td>
+      <td style="text-align:center"><span style="color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace">0</span></td>
+      <td style="text-align:center"><span style="color:var(--error);font-weight:700;font-family:'JetBrains Mono',monospace">0</span></td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">1</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">1</td>
+      <td style="text-align:center;font-size:13px">✅ Match</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--violet);font-weight:600">Beacon</span></td>
+      <td style="font-size:13px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">beacon</td>
+      <td style="text-align:center"><span style="color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace">0</span></td>
+      <td style="text-align:center"><span style="color:var(--error);font-weight:700;font-family:'JetBrains Mono',monospace">0</span></td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">1</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">0</td>
+      <td style="text-align:center;font-family:'JetBrains Mono',monospace">1</td>
+      <td style="text-align:center;font-size:13px">✅ Match</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="section-title">Observer — Independent Verification</h2>
+<p class="section-desc">Runs every 6 hours. Reads Hermes agent.log + worker logs + JSONL ledgers. Compares against RaaS self-reports.</p>
+
+<div class="observer-box">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+    <span style="font-size:14px;font-weight:600">Discrepancies found:</span>
+    <span style="font-size:16px;font-weight:700;color:var(--error)">1</span>
+  </div>
+  <div style="background:rgba(239,68,68,0.08);border-left:3px solid var(--error);padding:10px 14px;border-radius:8px;margin-bottom:8px;font-size:13px;color:var(--text)">
+    ⚠️ Syn reported 38 claims but 165 actions observed (gap: 127). Most tool calls are routine operations (terminal commands, file reads) not individually claimed. This is expected for a lead agent — the gap represents granularity difference, not dishonesty.
+  </div>
+</div>
+
+<div class="observer-box">
+  <h3 style="font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text)">How It Works</h3>
+  <div class="observer-grid">
+    <div class="observer-block">
+      <div class="title" style="color:var(--accent)">1. Agents Self-Report</div>
+      <div class="body">Agents record tasks and mistakes to RaaS ledger. This is what they claim they did.</div>
+    </div>
+    <div class="observer-block">
+      <div class="title" style="color:var(--cyan)">2. Observer Reads Logs</div>
+      <div class="body">Script runs every 6 hours reading Hermes agent.log, Sage cron.log, and Forge/Beacon JSONL ledgers independently.</div>
+    </div>
+    <div class="observer-block">
+      <div class="title" style="color:var(--violet)">3. File Integrity Check</div>
+      <div class="body">SHA-256 checksums of 65 critical files across all agent workspaces. New, modified, or missing files flagged each cycle.</div>
+    </div>
+    <div class="observer-block">
+      <div class="title" style="color:var(--error)">4. Discrepancy Report</div>
+      <div class="body">Compares reported claims vs observed actions. Flags under-reporting, unlogged errors, and file changes.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Method Statement:</strong> The Observer is an independent Python script
+  that reads system-level log files. It has no access to agent memory, no API keys,
+  and cannot be influenced by agent prompts. Its own ledger is written to
+  <code>ledger-observer.jsonl</code> and its source code is at
+  <code>~/.hermes/scripts/observer-v2.py</code>.
+  Anyone can verify the Observer's findings by reading the same log files.
+  The Observer itself is tracked by the same cron system as the agents it monitors
+  — if the Observer stops running, that gap is itself detectable.
+</div>
+
+<div class="footer">
+  <strong>Aion Nation</strong> — we shine together.<br>
+  <a href="https://aion-nation.com">Home</a> ·
+  <a href="https://github.com/mcyong1973-create/raas">GitHub</a> ·
+  <a href="mailto:support@aion-nation.com">Contact</a><br>
+  <span style="font-size:12px;color:var(--text-dim)">
+    Last updated: June 15, 2026 · Observer v2 — Independent Activity Tracking · Data from Hermes agent.log + worker ledgers
+  </span>
+</div>
+
+</div>
+</body>
+</html>

@@ -8,7 +8,9 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+import pathlib
 import uvicorn
 import engine
 from datetime import datetime, timezone
@@ -33,6 +35,26 @@ def _license_banner():
 
 
 app = FastAPI(title="Aion RaaS — Reputation as a Service")
+
+# Mount static files for trust dashboard and other assets
+STATIC_DIR = pathlib.Path(__file__).parent / "static"
+STATIC_DIR.mkdir(exist_ok=True)
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+@app.get("/trust")
+def trust_dashboard():
+    """Live Trust Dashboard — public agent reputation page."""
+    trust_path = STATIC_DIR / "trust.html"
+    if trust_path.exists():
+        return FileResponse(str(trust_path), media_type="text/html")
+    return HTMLResponse("<html><body><h1>Trust dashboard not built yet</h1></body></html>")
+
+# ── HEALTH CHECK ──────────────────────────────────────────
+
+@app.get("/health")
+def health():
+    """Health check endpoint for monitoring and load balancers."""
+    return {"status": "ok", "service": "raas", "version": "0.2"}
 
 # ── AGENT LIST / HOME ──────────────────────────────────────
 
@@ -593,6 +615,13 @@ def get_errors(agent_id: str, request: Request):
 # ── MAIN ──────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import uvicorn
     port = int(os.environ.get("PORT", 8080))
+
+    # Mount static files directory for the trust dashboard
+    import pathlib
+    static_dir = pathlib.Path(__file__).parent / "static"
+    static_dir.mkdir(exist_ok=True)
+
     print(f"RaaS v0.2 starting on port {port}")
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="127.0.0.1", port=port)

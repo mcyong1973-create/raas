@@ -1,0 +1,15 @@
+[Unit]
+Description=RaaS — Reputation as a Service
+After=network.target
+
+[Service]
+Type=simple
+User=stationgpu
+WorkingDirectory=/home/stationgpu/aion/ventures/raas
+ExecStart=/usr/bin/python3 /home/stationgpu/aion/ventures/raas/server.py
+Restart=on-failure
+RestartSec=5
+Environment=PORT=8080
+
+[Install]
+WantedBy=multi-user.target

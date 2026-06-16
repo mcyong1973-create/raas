@@ -5,3 +5,7 @@ ledgers/test-*/
 ledgers/raas-server/
 ~/.raas/
 *.log
+static/*.md
+static/observer-summary.json
+data/
+.raas/
