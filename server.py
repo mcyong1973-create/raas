@@ -28,7 +28,7 @@ def _license_banner():
     if valid:
         return '<div class="license-ok">✓ License active</div>'
     elif reason == "no-license":
-        return f'<div class="license-none">⚠ No license key. <a href="mailto:support@aion-nation.com" style="color:#d9a022">Contact support@aion-nation.com</a> or <a href="https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00" style="color:#d9a022">subscribe for $10/month</a>. 7-day grace period before tracking stops.</div>'
+        return f'<div class="license-none">\u26a0 No license key. <a href="mailto:support@aion-nation.com" style="color:#d9a022">Contact support@aion-nation.com</a> or <a href="https://buy.stripe.com/whatever" style="color:#d9a022">buy for $10 lifetime</a>. One-time purchase. Lifetime access.</div>'
     else:
         return f'<div class="license-expired">✗ {msg} <a href="mailto:{email}" style="color:#f85149">Email {email}</a></div>'
 
@@ -490,10 +490,10 @@ def submit_claim(agent_id: str, data: dict):
         return JSONResponse({
             "error": "License expired",
             "message": lic_msg,
-            "help": "Contact support@aion-nation.com or subscribe at https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00",
+            "help": "Contact support@aion-nation.com or subscribe at https://buy.stripe.com/whatever",
             "support": {
                 "email": "support@aion-nation.com",
-                "subscribe": "https://buy.stripe.com/3cI7sLbhL6wFfl47636EU00",
+                "subscribe": "https://buy.stripe.com/whatever",
                 "docs": "http://localhost:8080/docs",
                 "status": "http://localhost:8080/api/v1/support"
             }

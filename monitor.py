@@ -123,7 +123,7 @@ def init_config():
             json.dump(config, f, indent=2)
         print(f"  Config created at {CONFIG_FILE}")
         print("  Your agents will be tracked automatically when you run them.")
-        print("  License: Personal (2 agents) $20/mo | Business (5) $100/mo | Enterprise (5+) $100+$20/agent")
+        print("  License: $10 lifetime — one agent, all features. No subscriptions.")
         print("  Run 'raas-monitor license set <key>' after purchasing.")
         print("  Use 'raas-monitor watchlist' to customize what you want to track.")
         print()

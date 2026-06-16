@@ -22,9 +22,7 @@ import stripe
 stripe.api_key = STRIPE_SECRET_KEY
 
 PRICE_MAP = {
-    "price_basic": {"tier": "basic", "agents": 2, "price": 1999, "label": "Basic"},
-    "price_pro": {"tier": "pro", "agents": 10, "price": 6999, "label": "Pro"},
-    "price_enterprise": {"tier": "enterprise", "agents": -1, "price": 49900, "label": "Enterprise"},
+    "price_lifetime": {"tier": "lifetime", "agents": -1, "price": 1000, "label": "Lifetime"},
 }
 
 
